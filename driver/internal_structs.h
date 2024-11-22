@@ -10,7 +10,82 @@
 /// NOTE: internal structures are denoted with the prefix "_"
 
 
-/// TODO: /* General Configuration Registers */
+/// @struct _ism330dhcx__TEMPLATE_s
+/// @brief  ISM330DHCX template
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0   : 1;    // [0] Reserved                  {0}
+            u8_t RESERVED_1   : 1;    // [1] Reserved                  {0}
+            u8_t RESERVED_2   : 1;    // [2] Reserved                  {0}
+            u8_t RESERVED_3   : 1;    // [3] Reserved                  {0}
+            u8_t RESERVED_4   : 1;    // [4] Reserved                  {0}
+            u8_t RESERVED_5   : 1;    // [5] Reserved                  {0}
+            u8_t RESERVED_6   : 1;    // [6] Reserved                  {0}
+            u8_t RESERVED_7   : 1;    // [7] Reserved                  {0}
+        };
+    } bf;
+
+} _ism330dhcx__TEMPLATE_s;
+
+
+/* General Configuration Registers */
+
+
+/// @struct _ism330dhcx__FUNC_CFG_ACCESS_s
+/// @brief  ISM330DHCX embedded functions control register
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0      : 1;    // [0]   Reserved                                                        {0}
+            u8_t RESERVED_1      : 1;    // [1]   Reserved                                                        {0}
+            u8_t RESERVED_2      : 1;    // [2]   Reserved                                                        {0}
+            u8_t RESERVED_3      : 1;    // [3]   Reserved                                                        {0}
+            u8_t RESERVED_4      : 1;    // [4]   Reserved                                                        {0}
+            u8_t RESERVED_5      : 1;    // [5]   Reserved                                                        {0}
+            u8_t SHUB_REG_ACCESS : 1;    // [6]   Enable access to the sensor hub (I²C master) registers          {0}
+            u8_t FUNC_CFG_ACCESS : 1;    // [7]   Enable access to the embedded functions configuration registers {0}
+        };
+    } bf;
+
+} _ism330dhcx__FUNC_CFG_ACCESS_s;
+
+
+/// @struct _ism330dhcx__FUNC_CFG_ACCESS_s
+/// @brief  ISM330DHCX embedded functions control register
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {0x3F}
+        struct {
+            u8_t RESERVED_0 : 1;    // [0]   Reserved                                         {1}
+            u8_t RESERVED_1 : 1;    // [1]   Reserved                                         {1}
+            u8_t RESERVED_2 : 1;    // [2]   Reserved                                         {1}
+            u8_t RESERVED_3 : 1;    // [3]   Reserved                                         {1}
+            u8_t RESERVED_4 : 1;    // [4]   Reserved                                         {1}
+            u8_t RESERVED_5 : 1;    // [5]   Reserved                                         {1}
+            u8_t OIS_PU_DIS : 1;    // [6]   Enable pull-up on SDO pin                        {0}
+            u8_t SDO_PU_EN  : 1;    // [7]   Disable pull-up on both OCS_Aux and SDO_Aux pins {0}
+        };
+    } bf;
+
+} _ism330dhcx__FUNC_CFG_ACCESS_s;
 
 
 /// TODO: /* FIFO Registers */
