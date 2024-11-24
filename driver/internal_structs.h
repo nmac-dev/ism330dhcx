@@ -21,14 +21,14 @@ typedef struct
     union {
         u8_t full;                    // [7:0] Full value of the register {0x00}
         struct {
-            u8_t RESERVED_0   : 1;    // [0] Reserved                  {0}
-            u8_t RESERVED_1   : 1;    // [1] Reserved                  {0}
-            u8_t RESERVED_2   : 1;    // [2] Reserved                  {0}
-            u8_t RESERVED_3   : 1;    // [3] Reserved                  {0}
-            u8_t RESERVED_4   : 1;    // [4] Reserved                  {0}
-            u8_t RESERVED_5   : 1;    // [5] Reserved                  {0}
-            u8_t RESERVED_6   : 1;    // [6] Reserved                  {0}
-            u8_t RESERVED_7   : 1;    // [7] Reserved                  {0}
+            u8_t RESERVED_0   : 1;    // [0]   Reserved {0}
+            u8_t RESERVED_1   : 1;    // [1]   Reserved {0}
+            u8_t RESERVED_2   : 1;    // [2]   Reserved {0}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved {0}
+            u8_t RESERVED_4   : 1;    // [4]   Reserved {0}
+            u8_t RESERVED_5   : 1;    // [5]   Reserved {0}
+            u8_t RESERVED_6   : 1;    // [6]   Reserved {0}
+            u8_t RESERVED_7   : 1;    // [7]   Reserved {0}
         };
     } bf;
 
@@ -47,7 +47,7 @@ typedef struct
     /// @union <anonymous>
     /// @brief Bit Field Union for register value
     union {
-        u8_t full;                  // [7:0] Full value of the register {0x00}
+        u8_t full;                       // [7:0] Full value of the register {0x00}
         struct {
             u8_t RESERVED_0      : 1;    // [0]   Reserved                                                        {0}
             u8_t RESERVED_1      : 1;    // [1]   Reserved                                                        {0}
@@ -89,6 +89,95 @@ typedef struct
 
 
 /// TODO: /* FIFO Registers */
+
+
+/// @struct _ism330dhcx__FIFO_CTRL1_s
+/// @brief  ISM330DHCX FIFO control register 1
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;            // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t WTM0 : 1;    // [0]   FIFO watermark threshold 0 {0}
+            u8_t WTM1 : 1;    // [1]   FIFO watermark threshold 1 {0}
+            u8_t WTM2 : 1;    // [2]   FIFO watermark threshold 2 {0}
+            u8_t WTM3 : 1;    // [3]   FIFO watermark threshold 3 {0}
+            u8_t WTM4 : 1;    // [4]   FIFO watermark threshold 4 {0}
+            u8_t WTM5 : 1;    // [5]   FIFO watermark threshold 5 {0}
+            u8_t WTM6 : 1;    // [6]   FIFO watermark threshold 6 {0}
+            u8_t WTM7 : 1;    // [7]   FIFO watermark threshold 7 {0}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_CTRL1_s;
+
+
+/// @struct _ism330dhcx__FIFO_CTRL2_s
+/// @brief  ISM330DHCX FIFO control register 2
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                        // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t WTM8             : 1;    // [0]   FIFO watermark threshold 8                     {0}
+            u8_t UNCOPTR_RATE     : 2;    // [2:1] Configures compression algorithm               {0}
+            u8_t RESERVED_3       : 1;    // [3]   Reserved                                       {0}
+            u8_t ODRCHG_EN        : 1;    // [4]   Enables ODR CHANGE virtual sensor batching     {0}
+            u8_t RESERVED_5       : 1;    // [5]   Reserved                                       {0}
+            u8_t FIFO_COMPR_RT_EN : 1;    // [6]   Enables/Disables compression algorithm runtime {0}
+            u8_t STOP_ON_WTM      : 1;    // [7]   Stop values memorization at threshold level    {0}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_CTRL2_s;
+
+
+/// @struct _ism330dhcx__FIFO_CTRL3_s
+/// @brief  ISM330DHCX FIFO control register 3
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;              // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t BDR_XL : 4;    // [3:0] Selects Batch Data Rate (gyroscope)     {0}
+            u8_t BDR_GY : 4;    // [7:4] Selects Batch Data Rate (accelerometer) {0}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_CTRL3_s;
+
+
+/// @struct _ism330dhcx__FIFO_CTRL4_s
+/// @brief  ISM330DHCX FIFO control register 4
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FIFO_MODE    : 3;    // [2:0] FIFO mode selection                       {0}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved                                  {0}
+            u8_t ODR_T_BATCH  : 2;    // [5:4] Selects batch data rate (temperature)     {0}
+            u8_t DEC_TS_BATCH : 2;    // [7:6] Selects decimation for timestamp batching {0}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_CTRL4_s;
 
 
 /// TODO: /* Interrupt Registers */
