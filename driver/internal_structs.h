@@ -88,7 +88,7 @@ typedef struct
 } _ism330dhcx__FUNC_CFG_ACCESS_s;
 
 
-/// TODO: /* FIFO Registers */
+/* FIFO Registers */
 
 
 /// @struct _ism330dhcx__FIFO_CTRL1_s
@@ -102,14 +102,14 @@ typedef struct
     union {
         u8_t full;            // [7:0] Full value of the register {0x00}
         struct {
-            u8_t WTM0 : 1;    // [0]   FIFO watermark threshold 0 {0}
-            u8_t WTM1 : 1;    // [1]   FIFO watermark threshold 1 {0}
-            u8_t WTM2 : 1;    // [2]   FIFO watermark threshold 2 {0}
-            u8_t WTM3 : 1;    // [3]   FIFO watermark threshold 3 {0}
-            u8_t WTM4 : 1;    // [4]   FIFO watermark threshold 4 {0}
-            u8_t WTM5 : 1;    // [5]   FIFO watermark threshold 5 {0}
-            u8_t WTM6 : 1;    // [6]   FIFO watermark threshold 6 {0}
-            u8_t WTM7 : 1;    // [7]   FIFO watermark threshold 7 {0}
+            u8_t WTM0 : 1;    // [0]   FIFO watermark threshold {0}
+            u8_t WTM1 : 1;    // [1]   FIFO watermark threshold {0}
+            u8_t WTM2 : 1;    // [2]   FIFO watermark threshold {0}
+            u8_t WTM3 : 1;    // [3]   FIFO watermark threshold {0}
+            u8_t WTM4 : 1;    // [4]   FIFO watermark threshold {0}
+            u8_t WTM5 : 1;    // [5]   FIFO watermark threshold {0}
+            u8_t WTM6 : 1;    // [6]   FIFO watermark threshold {0}
+            u8_t WTM7 : 1;    // [7]   FIFO watermark threshold {0}
         };
     } bf;
 
@@ -127,7 +127,7 @@ typedef struct
     union {
         u8_t full;                        // [7:0] Full value of the register {0x00}
         struct {
-            u8_t WTM8             : 1;    // [0]   FIFO watermark threshold 8                     {0}
+            u8_t WTM8             : 1;    // [0]   FIFO watermark threshold                       {0}
             u8_t UNCOPTR_RATE     : 2;    // [2:1] Configures compression algorithm               {0}
             u8_t RESERVED_3       : 1;    // [3]   Reserved                                       {0}
             u8_t ODRCHG_EN        : 1;    // [4]   Enables ODR CHANGE virtual sensor batching     {0}
@@ -151,8 +151,8 @@ typedef struct
     union {
         u8_t full;              // [7:0] Full value of the register {0x00}
         struct {
-            u8_t BDR_XL : 4;    // [3:0] Selects Batch Data Rate (gyroscope)     {0}
-            u8_t BDR_GY : 4;    // [7:4] Selects Batch Data Rate (accelerometer) {0}
+            u8_t BDR_XL : 4;    // [3:0] Selects Batch Data Rate (accelerometer) {0}
+            u8_t BDR_GY : 4;    // [7:4] Selects Batch Data Rate (gyroscope)     {0}
         };
     } bf;
 
@@ -178,6 +178,228 @@ typedef struct
     } bf;
 
 } _ism330dhcx__FIFO_CTRL4_s;
+
+
+/// @struct _ism330dhcx__FIFO_CTRL_s
+/// @brief  ISM330DHCX FIFO control register (1|2|3|4)
+typedef struct
+{
+    adr_u32c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u32_t full;                        // [31:0] Full value of the register {0x00}
+        struct {
+            // FIFO_CTRL1|2
+            u32_t WTM              : 9;    // [8:0]  FIFO watermark threshold                        {0}
+            // FIFO_CTRL2
+            u32_t UNCOPTR_RATE     : 2;    // [10:9]  Configures compression algorithm               {0}
+            u32_t RESERVED_3       : 1;    // [11]    Reserved                                       {0}
+            u32_t ODRCHG_EN        : 1;    // [12]    Enables ODR CHANGE virtual sensor batching     {0}
+            u32_t RESERVED_5       : 1;    // [13]    Reserved                                       {0}
+            u32_t FIFO_COMPR_RT_EN : 1;    // [14]    Enables/Disables compression algorithm runtime {0}
+            u32_t STOP_ON_WTM      : 1;    // [15]    Stop values memorization at threshold level    {0}
+            // FIFO_CTRL3
+            u32_t BDR_XL           : 4;    // [19:16] Selects Batch Data Rate (accelerometer)        {0}
+            u32_t BDR_GY           : 4;    // [23:20] Selects Batch Data Rate (gyroscope)            {0}
+            // FIFO_CTRL4
+            u32_t FIFO_MODE        : 3;    // [26:24] FIFO mode selection                            {0}
+            u32_t RESERVED_27      : 1;    // [27]    Reserved                                       {0}
+            u32_t ODR_T_BATCH      : 2;    // [29:28] Selects batch data rate (temperature)          {0}
+            u32_t DEC_TS_BATCH     : 2;    // [31:30] Selects decimation for timestamp batching      {0}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_CTRL_s;
+
+
+/// @struct  _ism330dhcx__COUNTER_BDR_REG1_s
+/// @brief   ISM330DHCX Counter batch data rate register 1
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                        // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t CNT_BDR_TH_8     : 1;    // [0]   Threshold for the internal counter of batch events                               {0}
+            u8_t CNT_BDR_TH_9     : 1;    // [1]   Threshold for the internal counter of batch events                               {0}
+            u8_t CNT_BDR_TH_10    : 1;    // [2]   Threshold for the internal counter of batch events                               {0}
+            u8_t RESERVED_3       : 1;    // [3]   Reserved                                                                         {0}
+            u8_t RESERVED_4       : 1;    // [4]   Reserved                                                                         {0}
+            u8_t TRIG_COUNTER_BDR : 1;    // [5]   Selects the trigger for the internal counter of batch events between XL and gyro {0}
+            u8_t RST_COUNTER_BDR  : 1;    // [6]   Resets the internal counter of batch events for a single sensor                  {0}
+            u8_t dataready_pulsed : 1;    // [7]   Enables pulsed data-ready mode                                                   {0}
+        };
+    } bf;
+
+} _ism330dhcx__COUNTER_BDR_REG1_s;
+
+
+/// @struct  _ism330dhcx__COUNTER_BDR_REG2_s
+/// @brief   ISM330DHCX Counter batch data rate register 2
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t CNT_BDR_TH_0 : 1;    // [0]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_1 : 1;    // [1]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_2 : 1;    // [2]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_3 : 1;    // [3]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_4 : 1;    // [4]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_5 : 1;    // [5]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_6 : 1;    // [6]   Threshold for the internal counter of batch events {0}
+            u8_t CNT_BDR_TH_7 : 1;    // [7]   Threshold for the internal counter of batch events {0}
+        };
+    } bf;
+
+} _ism330dhcx__COUNTER_BDR_REG2_s;
+
+
+/// @struct  _ism330dhcx__COUNTER_BDR_REG_s
+/// @brief   ISM330DHCX Counter batch data rate register (2|1)
+/// @warning COUNTER_BDR_REG 1 & 2 have an unconventional bit order and must be send in reverse order (COUNTER_BDR_REG2|COUNTER_BDR_REG1)
+typedef struct
+{
+    adr_u16c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u16_t full;                        // [15:0] Full value of the register {0x0000}
+        struct {
+            // COUNTER_BDR_REG2|1
+            u16_t CNT_BDR_TH       : 11;   // [10:0] Threshold for the internal counter of batch events                               {000 00000000}
+            // COUNTER_BDR_REG1
+            u16_t RESERVED_3       : 1;    // [11]   Reserved                                                                         {0}
+            u16_t RESERVED_4       : 1;    // [12]   Reserved                                                                         {0}
+            u16_t TRIG_COUNTER_BDR : 1;    // [13]   Selects the trigger for the internal counter of batch events between XL and gyro {0}
+            u16_t RST_COUNTER_BDR  : 1;    // [14]   Resets the internal counter of batch events for a single sensor                  {0}
+            u16_t dataready_pulsed : 1;    // [15]   Enables pulsed data-ready mode                                                   {0}
+
+        };
+    } bf;
+
+} _ism330dhcx__COUNTER_BDR_REG_s;
+
+
+/// @struct _ism330dhcx__FIFO_STATUS1_s
+/// @brief  ISM330DHCX FIFO status register 1
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                   // [7:0] Full value of the register {output}
+        struct {
+            u8_t DIFF_FIFO_0 : 1;    // [0]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_1 : 1;    // [1]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_2 : 1;    // [2]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_3 : 1;    // [3]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_4 : 1;    // [4]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_5 : 1;    // [5]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_6 : 1;    // [6]   Number of unread sensor data stored in FIFO {output}
+            u8_t DIFF_FIFO_7 : 1;    // [7]   Number of unread sensor data stored in FIFO {output}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_STATUS1_s;
+
+
+/// @struct _ism330dhcx__FIFO_STATUS2_s
+/// @brief  ISM330DHCX FIFO status register 2
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                        // [7:0] Full value of the register {output}
+        struct {
+            u8_t DIFF_FIFO_8      : 1;    // [0]   Number of unread sensor data stored in FIFO         {output}
+            u8_t DIFF_FIFO_9      : 1;    // [1]   Number of unread sensor data stored in FIFO         {output}
+            u8_t RESERVED_11      : 1;    // [2]   Reserved                                            {output}
+            u8_t FIFO_OVR_LATCHED : 1;    // [3]   Latched FIFO overrun status                         {output}
+            u8_t COUNTER_BDR_IA   : 1;    // [4]   Counter BDR reaches the CNT_BDR_TH_[10:0] threshold {output}
+            u8_t FIFO_FULL_IA     : 1;    // [5]   Smart FIFO full status                              {output}
+            u8_t FIFO_OVR_IA      : 1;    // [6]   FIFO overrun status                                 {output}
+            u8_t FIFO_WTM_IA      : 1;    // [7]   FIFO watermark status                               {output}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_STATUS2_s;
+
+
+/// @struct _ism330dhcx__FIFO_STATUS_s
+/// @brief  ISM330DHCX FIFO status register (1|2)
+typedef struct
+{
+    adr_u16c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u16_t full;                        // [15:0] Full value of the register {output}
+        struct {
+            // FIFO_STATUS1|2
+            u16_t DIFF_FIFO        : 10;   // [9:0]  Number of unread sensor data stored in FIFO         {output}
+            // FIFO_STATUS2
+            u16_t RESERVED_11      : 1;    // [10]   Reserved                                            {output}
+            u16_t FIFO_OVR_LATCHED : 1;    // [11]   Latched FIFO overrun status                         {output}
+            u16_t COUNTER_BDR_IA   : 1;    // [12]   Counter BDR reaches the CNT_BDR_TH_[10:0] threshold {output}
+            u16_t FIFO_FULL_IA     : 1;    // [13]   Smart FIFO full status                              {output}
+            u16_t FIFO_OVR_IA      : 1;    // [14]   FIFO overrun status                                 {output}
+            u16_t FIFO_WTM_IA      : 1;    // [15]   FIFO watermark status                               {output}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_STATUS_s;
+
+
+/// @struct _ism330dhcx__FIFO_DATA_OUT_TAG_s
+/// @brief  ISM330DHCX FIFO tag register
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t TAG_PARITY   : 1;    // [0]   Identifies the sensor                           {output}
+            u8_t TAG_CNT      : 2;    // [2:1] 2-bit counter which identifies sensor time slot {output}
+            u8_t TAG_SENSOR   : 5;    // [7:3] Selects batch data rate (temperature)           {output}
+        };
+    } bf;
+
+} _ism330dhcx__FIFO_DATA_OUT_TAG_s;
+
+
+/// @struct _ism330dhcx__FIFO_DATA_OUT_X_s
+/// @brief  ISM330DHCX FIFO data output X
+typedef reg_u16_s _ism330dhcx__FIFO_DATA_OUT_X_s;
+
+
+/// @struct _ism330dhcx__FIFO_DATA_OUT_Y_s
+/// @brief  ISM330DHCX FIFO data output Y
+typedef reg_u16_s _ism330dhcx__FIFO_DATA_OUT_Y_s;
+
+
+/// @struct _ism330dhcx__FIFO_DATA_OUT_Z_s
+/// @brief  ISM330DHCX FIFO data output Z
+typedef reg_u16_s _ism330dhcx__FIFO_DATA_OUT_Z_s;
 
 
 /// TODO: /* Interrupt Registers */
