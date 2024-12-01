@@ -402,7 +402,242 @@ typedef reg_u16_s _ism330dhcx__FIFO_DATA_OUT_Y_s;
 typedef reg_u16_s _ism330dhcx__FIFO_DATA_OUT_Z_s;
 
 
-/// TODO: /* Interrupt Registers */
+/* Interrupt Registers */
+
+
+/// @struct _ism330dhcx__INT1_CTRL_s
+/// @brief  ISM330DHCX INT1 pin control register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                      // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t INT1_DRDY_XL   : 1;    // [0]   Enables accelerometer data-ready interrupt on INT1 pin {0}
+            u8_t INT1_DRDY_G    : 1;    // [1]   Enables gyroscope data-ready interrupt on INT1 pin     {0}
+            u8_t INT1_BOOT      : 1;    // [2]   Enables boot status on INT1 pin                        {0}
+            u8_t INT1_FIFO_TH   : 1;    // [3]   Enables FIFO threshold interrupt on INT1 pin           {0}
+            u8_t INT1_FIFO_OVR  : 1;    // [4]   Enables FIFO overrun interrupt on INT1 pin             {0}
+            u8_t INT1_FIFO_FULL : 1;    // [5]   Enables FIFO full flag interrupt on INT1 pin           {0}
+            u8_t INT1_CNT_BDR   : 1;    // [6]   Enables COUNTER_BDR_IA interrupt on INT1               {0}
+            u8_t DEN_DRDY_flag  : 1;    // [7]   Sends DEN_DRDY to INT1 pin                             {0}
+        };
+    } bf;
+
+} _ism330dhcx__INT1_CTRL_s;
+
+
+/// @struct _ism330dhcx__INT2_CTRL_s
+/// @brief  ISM330DHCX INT2 pin control register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                      // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t INT2_DRDY_XL   : 1;    // [0]   Enables accelerometer data-ready interrupt on INT2 pin      {0}
+            u8_t INT2_DRDY_G    : 1;    // [1]   Enables gyroscope data-ready interrupt on INT2 pin          {0}
+            u8_t INT2_DRDY_TEMP : 1;    // [2]   Enables temperature sensor data-ready interrupt on INT2 pin {0}
+            u8_t INT_FIFO_TH    : 1;    // [3]   Enables FIFO threshold interrupt on INT2 pin                {0}
+            u8_t INT2_FIFO_OVR  : 1;    // [4]   Enables FIFO overrun interrupt on INT2 pin                  {0}
+            u8_t INT2_FIFO_FULL : 1;    // [5]   Enables FIFO full flag interrupt on INT2 pin                {0}
+            u8_t INT2_CNT_BDR   : 1;    // [6]   Enables COUNTER_BDR_IA interrupt on INT2 pin                {0}
+            u8_t RESERVED_7     : 1;    // [7]   Reserved                                                    {0}
+        };
+    } bf;
+
+} _ism330dhcx__INT2_CTRL_s;
+
+
+/// @struct _ism330dhcx__INT_CTRL_s
+/// @brief  ISM330DHCX INT pin control register (1|2) [r/w]
+typedef struct
+{
+    adr_u16c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u16_t full;                      // [7:0] Full value of the register {0x00}
+        struct {
+            // INT1
+            u16_t INT1_DRDY_XL   : 1;    // [0]   Enables accelerometer data-ready interrupt on INT1 pin      {0}
+            u16_t INT1_DRDY_G    : 1;    // [1]   Enables gyroscope data-ready interrupt on INT1 pin          {0}
+            u16_t INT1_BOOT      : 1;    // [2]   Enables boot status on INT1 pin                             {0}
+            u16_t INT1_FIFO_TH   : 1;    // [3]   Enables FIFO threshold interrupt on INT1 pin                {0}
+            u16_t INT1_FIFO_OVR  : 1;    // [4]   Enables FIFO overrun interrupt on INT1 pin                  {0}
+            u16_t INT1_FIFO_FULL : 1;    // [5]   Enables FIFO full flag interrupt on INT1 pin                {0}
+            u16_t INT1_CNT_BDR   : 1;    // [6]   Enables COUNTER_BDR_IA interrupt on INT1                    {0}
+            u16_t DEN_DRDY_flag  : 1;    // [7]   Sends DEN_DRDY to INT1 pin                                  {0}
+            // INT2
+            u16_t INT2_DRDY_XL   : 1;    // [8]   Enables accelerometer data-ready interrupt on INT2 pin      {0}
+            u16_t INT2_DRDY_G    : 1;    // [9]   Enables gyroscope data-ready interrupt on INT2 pin          {0}
+            u16_t INT2_DRDY_TEMP : 1;    // [10]  Enables temperature sensor data-ready interrupt on INT2 pin {0}
+            u16_t INT_FIFO_TH    : 1;    // [11]  Enables FIFO threshold interrupt on INT2 pin                {0}
+            u16_t INT2_FIFO_OVR  : 1;    // [12]  Enables FIFO overrun interrupt on INT2 pin                  {0}
+            u16_t INT2_FIFO_FULL : 1;    // [13]  Enables FIFO full flag interrupt on INT2 pin                {0}
+            u16_t INT2_CNT_BDR   : 1;    // [14]  Enables COUNTER_BDR_IA interrupt on INT2 pin                {0}
+            u16_t RESERVED_7     : 1;    // [15]  Reserved                                                    {0}
+        };
+    } bf;
+
+} _ism330dhcx__INT_CTRL_s;
+
+
+/// @struct _ism330dhcx__ALL_INT_SRC_s
+/// @brief  ISM330DHCX Source register for all interrupts [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                          // [7:0] Full value of the register {output}
+        struct {
+            u8_t FF_IA              : 1;    // [0]   Free-fall event status                             {0}
+            u8_t WU_IA              : 1;    // [1]   Wake-up event status                               {0}
+            u8_t SINGLE_TAP         : 1;    // [2]   Single-tap event status                            {0}
+            u8_t DOUBLE_TAP         : 1;    // [3]   Double-tap event status                            {0}
+            u8_t D6D_IA             : 1;    // [4]   Interrupt active for 6-D detection                 {0}
+            u8_t SLEEP_CHANGE_IA    : 1;    // [5]   Detects change event in activity/inactivity status {0}
+            u8_t RESERVED_6         : 1;    // [6]   Reserved                                           {0}
+            u8_t TIMESTAMP_ENDCOUNT : 1;    // [7]   Alerts timestamp overflow within 6.4 ms            {0}
+        };
+    } bf;
+
+} _ism330dhcx__ALL_INT_SRC_s;
+
+
+/// @struct _ism330dhcx__WAKE_UP_SRC_s
+/// @brief  ISM330DHCX Wake-up interrupt source register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                       // [7:0] Full value of the register {output}
+        struct {
+            u8_t Z_WU            : 1;    // [0]   Wakeup event detection status on Z-axis            {0}
+            u8_t Y_WU            : 1;    // [1]   Wakeup event detection status on Y-axis            {0}
+            u8_t X_WU            : 1;    // [2]   Wakeup event detection status on X-axis            {0}
+            u8_t WU_IA           : 1;    // [3]   Wakeup event detection status                      {0}
+            u8_t SLEEP_STATE     : 1;    // [4]   Sleep event status                                 {0}
+            u8_t FF_IA           : 1;    // [5]   Free-fall event detection status                   {0}
+            u8_t SLEEP_CHANGE_IA : 1;    // [6]   Detects change event in activity/inactivity status {0}
+            u8_t RESERVED_7      : 1;    // [7]   Reserved                                           {0}
+        };
+    } bf;
+
+} _ism330dhcx__WAKE_UP_SRC_s;
+
+
+/// @struct _ism330dhcx__TAP_SRC_s
+/// @brief  ISM330DHCX Tap source register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {output}
+        struct {
+            u8_t Z_TAP      : 1;    // [0]   Tap event detection status on Z-axis       {0}
+            u8_t Y_TAP      : 1;    // [1]   Tap event detection status on Y-axis       {0}
+            u8_t X_TAP      : 1;    // [2]   Tap event detection status on X-axis       {0}
+            u8_t TAP_SIGN   : 1;    // [3]   Sign of acceleration detected by tap event {0}
+            u8_t DOUBLE_TAP : 1;    // [4]   Double-tap event detection status          {0}
+            u8_t SINGLE_TAP : 1;    // [5]   Single-tap event status                    {0}
+            u8_t TAP_IA     : 1;    // [6]   Tap event detection status                 {0}
+            u8_t RESERVED_7 : 1;    // [7]   Reserved                                   {0}
+        };
+    } bf;
+
+} _ism330dhcx__TAP_SRC_s;
+
+
+/// @struct _ism330dhcx__D6D_SRC_s
+/// @brief  ISM330DHCX 6-D detection register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                // [7:0] Full value of the register {output}
+        struct {
+            u8_t XL       : 1;    // [0]   X-axis low event  (under threshold) {0}
+            u8_t XH       : 1;    // [1]   X-axis high event (over threshold)  {0}
+            u8_t YL       : 1;    // [2]   Y-axis low event  (under threshold) {0}
+            u8_t YH       : 1;    // [3]   Y-axis high event (over threshold)  {0}
+            u8_t ZL       : 1;    // [4]   Z-axis low event  (under threshold) {0}
+            u8_t ZH       : 1;    // [5]   Z-axis high event (over threshold)  {0}
+            u8_t D6D_IA   : 1;    // [6]   Interrupt active for 6-D Detection  {0}
+            u8_t DEN_DRDY : 1;    // [7]   DEN data-ready signal               {0}
+        };
+    } bf;
+
+} _ism330dhcx__D6D_SRC_s;
+
+
+/// @struct _ism330dhcx__STATUS_REG_s
+/// @brief  ISM330DHCX STATUS_REG register (read by the primary interface I²C/SPI) [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {output}
+        struct {
+            u8_t XLDA         : 1;    // [0]   new accelerometer data available {0}
+            u8_t GDA          : 1;    // [1]   new gyroscope data available     {0}
+            u8_t TDA          : 1;    // [2]   new temperature data available   {0}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved                         {0}
+            u8_t RESERVED_4   : 1;    // [4]   Reserved                         {0}
+            u8_t RESERVED_5   : 1;    // [5]   Reserved                         {0}
+            u8_t RESERVED_6   : 1;    // [6]   Reserved                         {0}
+            u8_t RESERVED_7   : 1;    // [7]   Reserved                         {0}
+        };
+    } bf;
+
+} _ism330dhcx__STATUS_REG_s;
+
+
+/// @struct _ism330dhcx__STATUS_SPIAux_s
+/// @brief  ISM330DHCX STATUS_SPIAux register (read by the auxiliary SPI) [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                     // [7:0] Full value of the register {output}
+        struct {
+            u8_t XLDA          : 1;    // [0]   accelerometer data available                            {0}
+            u8_t GDA           : 1;    // [1]   gyroscope data available                                {0}
+            u8_t GYRO_SETTLING : 1;    // [2]   High when the gyroscope output is in the settling phase {0}
+            u8_t RESERVED_3    : 1;    // [3]   Reserved                                                {0}
+            u8_t RESERVED_4    : 1;    // [4]   Reserved                                                {0}
+            u8_t RESERVED_5    : 1;    // [5]   Reserved                                                {0}
+            u8_t RESERVED_6    : 1;    // [6]   Reserved                                                {0}
+            u8_t RESERVED_7    : 1;    // [7]   Reserved                                                {0}
+        };
+    } bf;
+
+} _ism330dhcx__STATUS_SPIAux_s;
 
 
 /* Control Registers */
