@@ -877,7 +877,42 @@ typedef struct
 } _ism330dhcx__CTRL10_C_s;
 
 
-/// TODO: /* Output Registers */
+/* Output Registers */
+
+
+/// @struct _ism330dhcx__OUT_TEMP_s
+/// @brief  ISM330DHCX Temperature data output register [r]
+typedef reg_u16_s _ism330dhcx__OUT_TEMP_s;
+
+
+/// @struct _ism330dhcx__OUTX_G_s
+/// @brief  ISM330DHCX Angular rate sensor pitch axis (X) angular rate output register [r]
+typedef reg_u16_s _ism330dhcx__OUTX_G_s;
+
+
+/// @struct _ism330dhcx__OUTY_G_s
+/// @brief  ISM330DHCX Angular rate sensor roll axis (Y) angular rate output register [r]
+typedef reg_u16_s _ism330dhcx__OUTY_G_s;
+
+
+/// @struct _ism330dhcx__OUTZ_G_s
+/// @brief  ISM330DHCX Angular rate sensor yaw axis (Z) angular rate output register [r]
+typedef reg_u16_s _ism330dhcx__OUTZ_G_s;
+
+
+/// @struct _ism330dhcx__OUTX_A_s
+/// @brief  ISM330DHCX Linear acceleration sensor X-axis output register [r]
+typedef reg_u16_s _ism330dhcx__OUTX_A_s;
+
+
+/// @struct _ism330dhcx__OUTY_A_s
+/// @brief  ISM330DHCX Linear acceleration sensor Y-axis output register [r]
+typedef reg_u16_s _ism330dhcx__OUTY_A_s;
+
+
+/// @struct _ism330dhcx__OUTZ_A_s
+/// @brief  ISM330DHCX Linear acceleration sensor Z-axis output register [r]
+typedef reg_u16_s _ism330dhcx__OUTZ_A_s;
 
 
 /// TODO: /* Motion Registers */
