@@ -915,7 +915,223 @@ typedef reg_u16_s _ism330dhcx__OUTY_A_s;
 typedef reg_u16_s _ism330dhcx__OUTZ_A_s;
 
 
-/// TODO: /* Motion Registers */
+/* Motion Registers */
+
+
+/// @struct _ism330dhcx__TAP_CFG0_s
+/// @brief  ISM330DHCX Tap configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                           // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t LIR                 : 1;    // [0]   Latched Interrupt                                         {0}
+            u8_t TAP_Z_EN            : 1;    // [1]   Enable Z direction in tap recognition                     {0}
+            u8_t TAP_Y_EN            : 1;    // [1]   Enable Y direction in tap recognition                     {0}
+            u8_t TAP_X_EN            : 1;    // [1]   Enable X direction in tap recognition                     {0}
+            u8_t SLOPE_FDS           : 1;    // [4]   HPF or SLOPE filter selection on wake-up and in/activity  {0}
+            u8_t SLEEP_STATUS_ON_INT : 1;    // [5]   Activity/inactivity interrupt mode configuration          {0}
+            u8_t INT_CLR_ON_READ     : 1;    // [6]   Clears latched interrupts of an event detection upon read {0}
+            u8_t RESERVED_7          : 1;    // [7]   Reserved                                                  {0}
+        };
+    } bf;
+
+} _ism330dhcx__TAP_CFG0_s;
+
+
+/// @struct _ism330dhcx__TAP_CFG1_s
+/// @brief  ISM330DHCX Tap configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t TAP_THS_X    : 5;    // [4:0] X-axis tap recognition threshold             {00000}
+            u8_t TAP_PRIORITY : 3;    // [7:5] Selection of axis priority for TAP detection {000}
+        };
+    } bf;
+
+} _ism330dhcx__TAP_CFG1_s;
+
+
+/// @struct _ism330dhcx__TAP_CFG2_s
+/// @brief  ISM330DHCX Tap configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                         // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t TAP_THS_Y         : 5;    // [4:0] Y-axis tap recognition threshold                                     {00000}
+            u8_t INACT_EN          : 2;    // [6:5] Enable in/activity (sleep) function                                  {00}
+            u8_t INTERRUPTS_ENABLE : 1;    // [7]   Enable basic interrupts (6D/4D, free-fall, wake-up, tap, inactivity) {0}
+        };
+    } bf;
+
+} _ism330dhcx__TAP_CFG2_s;
+
+
+/// @struct _ism330dhcx__TAP_THS_6D_s
+/// @brief  ISM330DHCX Portrait/landscape position and tap function threshold register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                 // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t TAP_THS_Z : 5;    // [4:0] Z-axis tap recognition threshold                                            {00000}
+            u8_t SIXD_THS  : 2;    // [6:5] Threshold for 4D/6D function                                                {00}
+            u8_t D4D_EN    : 1;    // [7]   Enables detection of 4D orientation (Z-axis position detection is disabled) {0}
+        };
+    } bf;
+
+} _ism330dhcx__TAP_CFG_6D_s;
+
+
+/// @struct _ism330dhcx__INT_DUR2_s
+/// @brief  ISM330DHCX Tap recognition function setting register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;             // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t SHOCK : 2;    // [1:0] Maximum duration of overthreshold event                 {00}
+            u8_t QUIET : 2;    // [3:2] Expected quiet time after a tap detection               {00}
+            u8_t DUR   : 4;    // [7:4] Duration of maximum time gap for double-tap recognition {0000}
+        };
+    } bf;
+
+} _ism330dhcx__INT_DUR2_s;
+
+
+/// @struct _ism330dhcx__WAKE_UP_THS_s
+/// @brief  ISM330DHCX Single/double-tap selection and wake-up configuration [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                         // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t WK_THS            : 6;    // [5:0] Threshold for wakeup                                         {000000}
+            u8_t USR_OFF_ON_WU     : 1;    // [6]   Sends the low-pass filtered data with user offset correction {0}
+            u8_t SINGLE_DOUBLE_TAP : 1;    // [7]   Single/double-tap event enable                               {0}
+        };
+    } bf;
+
+} _ism330dhcx__WAKE_UP_THS_s;
+
+
+/// @struct _ism330dhcx__WAKE_UP_DUR_s
+/// @brief  ISM330DHCX Free-fall, wakeup and sleep mode functions duration setting register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t SLEEP_DUR  : 4;    // [3:0] Duration to go in sleep mode        {0000}
+            u8_t WAKE_THS_W : 1;    // [4]   Weight of 1 LSB of wakeup threshold {0}
+            u8_t WAKE_DUR   : 2;    // [6:5] Wake up duration event              {00}
+            u8_t FF_DUR5    : 1;    // [7]   Free fall duration event            {0}
+        };
+    } bf;
+
+} _ism330dhcx__WAKE_UP_DUR_s;
+
+
+
+/// @struct _ism330dhcx__FREE_FALL_s
+/// @brief  ISM330DHCX Free-fall function duration setting register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;              // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FF_THS : 3;    // [2:0] Free-fall threshold setting {000}
+            u8_t FF_DUR : 5;    // [7:3] Free-fall duration event    {00000}
+        };
+    } bf;
+
+} _ism330dhcx__FREE_FALL_s;
+
+
+/// @struct _ism330dhcx__MD1_CFG_s
+/// @brief  ISM330DHCX Functions routing on INT1 register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                         // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t INT1_SHUB         : 1;    // [0]   Routing of sensor hub communication concluded event on INT1 {0}
+            u8_t INT1_EMB_FUNC     : 1;    // [1]   Routing of embedded functions event on INT1                 {0}
+            u8_t INT1_6D           : 1;    // [2]   Routing of 6D event on INT1                                 {0}
+            u8_t INT1_DOUBLE_TAP   : 1;    // [3]   Routing of double-tap event on INT1                         {0}
+            u8_t INT1_FF           : 1;    // [4]   Routing of free-fall event on INT1                          {0}
+            u8_t INT1_WU           : 1;    // [5]   Routing of wakeup event on INT1                             {0}
+            u8_t INT1_SINGLE_TAP   : 1;    // [6]   Routing of single-tap recognition event on INT1             {0}
+            u8_t INT1_SLEEP_CHANGE : 1;    // [7]   Routing of activity/inactivity recognition event on INT1    {0}
+        };
+    } bf;
+
+} _ism330dhcx__MD1_CFG_s;
+
+
+/// @struct _ism330dhcx__MD2_CFG_s
+/// @brief  ISM330DHCX Functions routing on INT2 register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                         // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t INT2_TIMESTAMP    : 1;    // [0]   Enables routing on INT2 pin of the alert for timestamp overflow {0}
+            u8_t INT2_EMB_FUNC     : 1;    // [1]   Routing of embedded functions event on INT2                     {0}
+            u8_t INT2_6D           : 1;    // [2]   Routing of 6D event on INT2                                     {0}
+            u8_t INT2_DOUBLE_TAP   : 1;    // [3]   Routing of double-tap event on INT2                             {0}
+            u8_t INT2_FF           : 1;    // [4]   Routing of free-fall event on INT2                              {0}
+            u8_t INT2_WU           : 1;    // [5]   Routing of wakeup event on INT2                                 {0}
+            u8_t INT2_SINGLE_TAP   : 1;    // [6]   Routing of single-tap recognition event on INT2                 {0}
+            u8_t INT2_SLEEP_CHANGE : 1;    // [7]   Routing of activity/inactivity recognition event on INT2        {0}
+        };
+    } bf;
+
+} _ism330dhcx__MD2_CFG_s;
+
 
 
 /// TODO: /* OIS and Offset Registers */
