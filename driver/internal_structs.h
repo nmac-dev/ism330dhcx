@@ -1132,6 +1132,167 @@ typedef struct
 } _ism330dhcx__MD2_CFG_s;
 
 
+/* Embedded and Machine Learning Status Registers */
+
+
+/// @struct _ism330dhcx__EMB_FUNC_STATUS_MAINPAGE_s
+/// @brief  ISM330DHCX Embedded function status register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                   // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0  : 1;    // [0]   Reserved                                                          {0}
+            u8_t RESERVED_1  : 1;    // [1]   Reserved                                                          {0}
+            u8_t RESERVED_2  : 1;    // [2]   Reserved                                                          {0}
+            u8_t IS_STEP_DET : 1;    // [3]   Interrupt status bit for step detection                           {0}
+            u8_t IS_TILT     : 1;    // [4]   Interrupt status bit for tilt detection                           {0}
+            u8_t IS_SIGMOT   : 1;    // [5]   Interrupt status bit for significant motion detection             {0}
+            u8_t RESERVED_6  : 1;    // [6]   Reserved                                                          {0}
+            u8_t IS_FSM_LC   : 1;    // [7]   Interrupt status bit for FSM long counter timeout interrupt event {0}
+        };
+    } bf;
+
+} _ism330dhcx__EMB_FUNC_STATUS_MAINPAGE_s;
+
+
+/// @struct _ism330dhcx__FSM_STATUS_A_MAINPAGE_s
+/// @brief  ISM330DHCX Finite State Machine status register (A) [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;               // [7:0] Full value of the register {output}
+        struct {
+            u8_t IS_FSM1 : 1;    // [0]   Interrupt status bit for FSM1 interrupt event {output}
+            u8_t IS_FSM2 : 1;    // [1]   Interrupt status bit for FSM2 interrupt event {output}
+            u8_t IS_FSM3 : 1;    // [2]   Interrupt status bit for FSM3 interrupt event {output}
+            u8_t IS_FSM4 : 1;    // [3]   Interrupt status bit for FSM4 interrupt event {output}
+            u8_t IS_FSM5 : 1;    // [4]   Interrupt status bit for FSM5 interrupt event {output}
+            u8_t IS_FSM6 : 1;    // [5]   Interrupt status bit for FSM6 interrupt event {output}
+            u8_t IS_FSM7 : 1;    // [6]   Interrupt status bit for FSM7 interrupt event {output}
+            u8_t IS_FSM8 : 1;    // [7]   Interrupt status bit for FSM8 interrupt event {output}
+        };
+    } bf;
+
+} _ism330dhcx__FSM_STATUS_A_MAINPAGE_s;
+
+
+/// @struct _ism330dhcx__FSM_STATUS_B_MAINPAGE_s
+/// @brief  ISM330DHCX Finite State Machine status register (B) [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                // [7:0] Full value of the register {output}
+        struct {
+            u8_t IS_FSM9  : 1;    // [0]   Interrupt status bit for FSM9  interrupt event {output}
+            u8_t IS_FSM10 : 1;    // [1]   Interrupt status bit for FSM10 interrupt event {output}
+            u8_t IS_FSM11 : 1;    // [2]   Interrupt status bit for FSM11 interrupt event {output}
+            u8_t IS_FSM12 : 1;    // [3]   Interrupt status bit for FSM12 interrupt event {output}
+            u8_t IS_FSM13 : 1;    // [4]   Interrupt status bit for FSM13 interrupt event {output}
+            u8_t IS_FSM14 : 1;    // [5]   Interrupt status bit for FSM14 interrupt event {output}
+            u8_t IS_FSM15 : 1;    // [6]   Interrupt status bit for FSM15 interrupt event {output}
+            u8_t IS_FSM16 : 1;    // [7]   Interrupt status bit for FSM16 interrupt event {output}
+        };
+    } bf;
+
+} _ism330dhcx__FSM_STATUS_B_MAINPAGE_s;
+
+
+/// @struct _ism330dhcx__FSM_STATUS_MAINPAGE_s
+/// @brief  ISM330DHCX Finite State Machine status register (A|B) [r]
+typedef struct
+{
+    adr_u16c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u16_t full;                // [15:0] Full value of the register {output}
+        struct {
+            u16_t IS_FSM1  : 1;    // [0]   Interrupt status bit for FSM1  interrupt event {output}
+            u16_t IS_FSM2  : 1;    // [1]   Interrupt status bit for FSM2  interrupt event {output}
+            u16_t IS_FSM3  : 1;    // [2]   Interrupt status bit for FSM3  interrupt event {output}
+            u16_t IS_FSM4  : 1;    // [3]   Interrupt status bit for FSM4  interrupt event {output}
+            u16_t IS_FSM5  : 1;    // [4]   Interrupt status bit for FSM5  interrupt event {output}
+            u16_t IS_FSM6  : 1;    // [5]   Interrupt status bit for FSM6  interrupt event {output}
+            u16_t IS_FSM7  : 1;    // [6]   Interrupt status bit for FSM7  interrupt event {output}
+            u16_t IS_FSM8  : 1;    // [7]   Interrupt status bit for FSM8  interrupt event {output}
+            u16_t IS_FSM9  : 1;    // [8]   Interrupt status bit for FSM9  interrupt event {output}
+            u16_t IS_FSM10 : 1;    // [9]   Interrupt status bit for FSM10 interrupt event {output}
+            u16_t IS_FSM11 : 1;    // [10]  Interrupt status bit for FSM11 interrupt event {output}
+            u16_t IS_FSM12 : 1;    // [11]  Interrupt status bit for FSM12 interrupt event {output}
+            u16_t IS_FSM13 : 1;    // [12]  Interrupt status bit for FSM13 interrupt event {output}
+            u16_t IS_FSM14 : 1;    // [13]  Interrupt status bit for FSM14 interrupt event {output}
+            u16_t IS_FSM15 : 1;    // [14]  Interrupt status bit for FSM15 interrupt event {output}
+            u16_t IS_FSM16 : 1;    // [15]  Interrupt status bit for FSM16 interrupt event {output}
+        };
+    } bf;
+
+} _ism330dhcx__FSM_STATUS_MAINPAGE_s;
+
+
+/// @struct _ism330dhcx__MLC_STATUS_MAINPAGE_s
+/// @brief  ISM330DHCX Machine Learning Core status register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;               // [7:0] Full value of the register {output}
+        struct {
+            u8_t IS_MLC1 : 1;    // [0]   Interrupt status bit for MLC1 interrupt event {output}
+            u8_t IS_MLC2 : 1;    // [1]   Interrupt status bit for MLC2 interrupt event {output}
+            u8_t IS_MLC3 : 1;    // [2]   Interrupt status bit for MLC3 interrupt event {output}
+            u8_t IS_MLC4 : 1;    // [3]   Interrupt status bit for MLC4 interrupt event {output}
+            u8_t IS_MLC5 : 1;    // [4]   Interrupt status bit for MLC5 interrupt event {output}
+            u8_t IS_MLC6 : 1;    // [5]   Interrupt status bit for MLC6 interrupt event {output}
+            u8_t IS_MLC7 : 1;    // [6]   Interrupt status bit for MLC7 interrupt event {output}
+            u8_t IS_MLC8 : 1;    // [7]   Interrupt status bit for MLC8 interrupt event {output}
+        };
+    } bf;
+
+} _ism330dhcx__MLC_STATUS_MAINPAGE_s;
+
+
+/// @struct _ism330dhcx__STATUS_MASTER_MAINPAGE_s
+/// @brief  ISM330DHCX Sensor hub source register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                      // [7:0] Full value of the register {output}
+        struct {
+            u8_t SENS_HUB_ENDOP : 1;    // [0]   Sensor hub communication status                                         {output}
+            u8_t RESERVED_1     : 1;    // [1]   Reserved                                                                {output}
+            u8_t RESERVED_2     : 1;    // [2]   Reserved                                                                {output}
+            u8_t SLAVE0_NACK    : 1;    // [3]   This bit is set to 1 if Not acknowledge occurs on slave 0 communication {output}
+            u8_t SLAVE1_NACK    : 1;    // [4]   This bit is set to 1 if Not acknowledge occurs on slave 1 communication {output}
+            u8_t SLAVE2_NACK    : 1;    // [5]   This bit is set to 1 if Not acknowledge occurs on slave 2 communication {output}
+            u8_t SLAVE3_NACK    : 1;    // [6]   This bit is set to 1 if Not acknowledge occurs on slave 3 communication {output}
+            u8_t WR_ONCE_DONE   : 1;    // [7]   Set to 1 when the write operation on slave 0 is completed               {output}
+        };
+    } bf;
+
+} _ism330dhcx__STATUS_MASTER_MAINPAGE_s;
+
+
 /* Optical Image Stabilisation (OIS) and Sensor Offset Registers */
 
 
