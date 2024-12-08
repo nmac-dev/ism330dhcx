@@ -1246,4 +1246,53 @@ typedef reg_u8_s _ism330dhcx__Y_OFS_USR_s;
 typedef reg_u8_s _ism330dhcx__Z_OFS_USR_s;
 
 
+/* Timestamp Registers */
+
+
+/// @struct _ism330dhcx__TIMESTAMP0_s
+/// @brief  ISM330DHCX Timestamp data output register (LSB) [r]
+/// @note   value is expressed as a 32-bit word and the bit resolution is 25 μs
+typedef reg_u8_s _ism330dhcx__TIMESTAMP0_s;
+
+
+/// @struct _ism330dhcx__TIMESTAMP1_s
+/// @brief  ISM330DHCX Timestamp data output register [r]
+/// @note   value is expressed as a 32-bit word and the bit resolution is 25 μs
+typedef reg_u8_s _ism330dhcx__TIMESTAMP1_s;
+
+
+/// @struct _ism330dhcx__TIMESTAMP2_s
+/// @brief  ISM330DHCX Timestamp data output register [r]
+/// @note   value is expressed as a 32-bit word and the bit resolution is 25 μs
+typedef reg_u8_s _ism330dhcx__TIMESTAMP2_s;
+
+
+/// @struct _ism330dhcx__TIMESTAMP3_s
+/// @brief  ISM330DHCX Timestamp data output register (MSB) [r]
+/// @note   value is expressed as a 32-bit word and the bit resolution is 25 μs
+typedef reg_u8_s _ism330dhcx__TIMESTAMP3_s;
+
+
+/// @struct _ism330dhcx__TIMESTAMP_s
+/// @brief  ISM330DHCX Timestamp data output register (1|2|3|4) [r]
+/// @note   value is expressed as a 32-bit word and the bit resolution is 25 μs
+typedef struct
+{
+    adr_u32c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u32_t full;                  // [31:0] Full value of the register {output}
+        struct {
+            u32_t TIMESTAMP0 : 8;    // [7:0]   Timestamp 0 (LSB) {output}
+            u32_t TIMESTAMP1 : 8;    // [15:8]  Timestamp 1       {output}
+            u32_t TIMESTAMP2 : 8;    // [23:16] Timestamp 2       {output}
+            u32_t TIMESTAMP3 : 8;    // [31:24] Timestamp 3 (MSB) {output}
+        };
+    } bf;
+
+} _ism330dhcx__TIMESTAMP_s;
+
+
 #endif /* __ISM330DHCX__INTERNAL_STRUCTS_H__ */
