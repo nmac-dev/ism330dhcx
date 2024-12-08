@@ -1063,7 +1063,6 @@ typedef struct
 } _ism330dhcx__WAKE_UP_DUR_s;
 
 
-
 /// @struct _ism330dhcx__FREE_FALL_s
 /// @brief  ISM330DHCX Free-fall function duration setting register [r/w]
 typedef struct
@@ -1133,8 +1132,118 @@ typedef struct
 } _ism330dhcx__MD2_CFG_s;
 
 
+/* Optical Image Stabilisation (OIS) and Sensor Offset Registers */
 
-/// TODO: /* OIS and Offset Registers */
+
+/// @struct _ism330dhcx__INT_OIS_s
+/// @brief  ISM330DHCX OIS interrupt configuration register and accelerometer self-test enable setting [r:r/w]
+/// @note   Primary interface for read-only [r]; only Aux SPI can write to this register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                     // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t ST_XL_OIS     : 2;    // [1:0] Selects accelerometer self-test                       {00}
+            u8_t RESERVED_2    : 1;    // [2]   Reserved                                              {0}
+            u8_t RESERVED_3    : 1;    // [3]   Reserved                                              {-}
+            u8_t RESERVED_4    : 1;    // [4]   Reserved                                              {-}
+            u8_t DEN_LH_OIS    : 1;    // [5]   Indicates polarity of DEN signal on OIS chain         {0}
+            u8_t LVL2_OIS      : 1;    // [6]   Enables level-sensitive latched mode on the OIS chain {0}
+            u8_t INT2_DRDY_OIS : 1;    // [7]   Enables OIS chain DRDY on INT2 pin                    {0}
+        };
+    } bf;
+
+} _ism330dhcx__INT_OIS_s;
+
+
+/// @struct _ism330dhcx__CTRL1_OIS_s
+/// @brief  ISM330DHCX OIS configuration register [r:r/w]
+/// @note   Primary interface for read-only [r]; only Aux SPI can write to this register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                   // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t OIS_EN_SPI2 : 1;    // [0]   Enables OIS chain data processing (gyro &| accelerometer) {0}
+            u8_t FS_125_OIS  : 1;    // [1]   Selects gyroscope OIS chain full-scale ±125 dps           {0}
+            u8_t FS_G_OIS    : 2;    // [3:2] Selects gyroscope OIS chain full-scale                    {00}
+            u8_t Mode4_EN    : 1;    // [4]   Enables accelerometer OIS chain                           {0}
+            u8_t SIM_OIS     : 1;    // [5]   SPI2 3- or 4-wire interface                               {0}
+            u8_t LVL1_OIS    : 1;    // [6]   Enables level-sensitive trigger mode on OIS chain         {0}
+            u8_t RESERVED_7  : 1;    // [7]   Reserved                                                  {0}
+        };
+    } bf;
+
+} _ism330dhcx__CTRL1_OIS_s;
+
+
+/// @struct _ism330dhcx__CTRL2_OIS_s
+/// @brief  ISM330DHCX OIS configuration register [r:r/w]
+/// @note   Primary interface for read-only [r]; only Aux SPI can write to this register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t HP_EN_OIS    : 1;    // [0]   Enables gyroscope OIS chain digital high-pass filter        {0}
+            u8_t FTYPE_OIS    : 2;    // [2:1] Selects gyroscope digital LPF1 filter bandwidth             {00}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved                                                    {0}
+            u8_t HPM_OIS      : 2;    // [5:4] Selects gyroscope OIS chain digital high-pass filter cutoff {00}
+            u8_t RESERVED_6   : 1;    // [6]   Reserved                                                    {-}
+            u8_t RESERVED_7   : 1;    // [7]   Reserved                                                    {-}
+        };
+    } bf;
+
+} _ism330dhcx__CTRL2_OIS_s;
+
+
+/// @struct _ism330dhcx__CTRL3_OIS_s
+/// @brief  ISM330DHCX OIS configuration register [r:r/w]
+/// @note   Primary interface for read-only [r]; only Aux SPI can write to this register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                          // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t ST_OIS_CLAMPDIS    : 1;    // [0]   Disables OIS chain clamp                     {0}
+            u8_t ST_OIS             : 2;    // [2:1] Selects gyroscope OIS chain self-test        {00}
+            u8_t FILTER_XL_CONF_OIS : 3;    // [5:3] Selects accelerometer OIS channel bandwidth  {000}
+            u8_t FS_XL_OIS          : 2;    // [7:6] Selects accelerometer OIS channel full-scale {00}
+        };
+    } bf;
+
+} _ism330dhcx__CTRL3_OIS_s;
+
+
+/// @struct _ism330dhcx__X_OFS_USR_s
+/// @brief  ISM330DHCX Accelerometer X-axis user offset correction [r/w]
+typedef reg_u8_s _ism330dhcx__X_OFS_USR_s;
+
+
+/// @struct _ism330dhcx__Y_OFS_USR_s
+/// @brief  ISM330DHCX Accelerometer Y-axis user offset correction [r/w]
+typedef reg_u8_s _ism330dhcx__Y_OFS_USR_s;
+
+
+/// @struct _ism330dhcx__Z_OFS_USR_s
+/// @brief  ISM330DHCX Accelerometer Z-axis user offset correction [r/w]
+typedef reg_u8_s _ism330dhcx__Z_OFS_USR_s;
 
 
 #endif /* __ISM330DHCX__INTERNAL_STRUCTS_H__ */
