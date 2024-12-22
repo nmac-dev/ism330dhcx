@@ -1456,4 +1456,9 @@ typedef struct
 } _ism330dhcx__TIMESTAMP_s;
 
 
+/// @struct _ism330dhcx__INTERNAL_FREQ_FINE_s
+/// @brief  ISM330DHCX Internal frequency register [r]
+typedef reg_u8_s _ism330dhcx__INTERNAL_FREQ_FINE_s;
+
+
 #endif /* __ISM330DHCX__INTERNAL_STRUCTS_H__ */
