@@ -174,7 +174,10 @@
 #define ISM330DHCX_RM_EF__FSM_INT1_B             (0x0Cu)    // Finite State Machine  INT1 control B    [r/w]   {0x00}
 #define ISM330DHCX_RM_EF__MLC_INT1               (0x0Du)    // Machine Learning Core INT1 control      [r/w]   {0x00}
 #define ISM330DHCX_RM_EF__EMB_FUNC_INT2          (0x0Eu)    // Embedded function     INT2 control      [r/w]   {0x00}
+
+/// !FIX-REQUIRED! Datasheet defines '01101011' (0x6B) as default value but register description lists values as '00000000'
 #define ISM330DHCX_RM_EF__FSM_INT2_A             (0x0Fu)    // Finite State Machine  INT2 control A    [r/w]   {0x6B}
+
 #define ISM330DHCX_RM_EF__FSM_INT2_B             (0x10u)    // Finite State Machine  INT2 control B    [r/w]   {0x00}
 #define ISM330DHCX_RM_EF__MLC_INT2               (0x11u)    // Machine Learning Core INT2 control      [r/w]   {0x00}
 

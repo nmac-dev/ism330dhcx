@@ -291,6 +291,7 @@ typedef struct
 
 /// @struct _ism330dhcx_rm_ef__FSM_INT2_A_s
 /// @brief  ISM330DHCX FSM INT2 pin control register (A) [r/w]
+/// !FIX-REQUIRED! Datasheet defines '01101011' (0x6B) as default value but register description lists values as '00000000'
 typedef struct
 {
     adr_u8c_u ADR; // register address
