@@ -1119,4 +1119,55 @@ typedef struct
 } _ism330dhcx_rm_ef__FSM_OUTS16_s;
 
 
+/* ODR Configuration Registers */
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_ODR_CFG_B_s
+/// @brief  ISM330DHCX Finite State Machine output data rate configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {0x4B}
+        struct {
+            u8_t RESERVED_0 : 1;    // [0]   Reserved                               {1}
+            u8_t RESERVED_1 : 1;    // [1]   Reserved                               {1}
+            u8_t RESERVED_2 : 1;    // [2]   Reserved                               {0}
+            u8_t FSM_ODR    : 2;    // [4:3] Finite State Machine ODR configuration {01}
+            u8_t RESERVED_5 : 1;    // [5]   Reserved                               {0}
+            u8_t RESERVED_6 : 1;    // [6]   Reserved                               {1}
+            u8_t RESERVED_7 : 1;    // [7]   Reserved                               {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_ODR_CFG_B_s;
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_ODR_CFG_C_s
+/// @brief  ISM330DHCX Machine Learning Core output data rate configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                  // [7:0] Full value of the register {0x15}
+        struct {
+            u8_t RESERVED_0 : 1;    // [0]   Reserved                                {1}
+            u8_t RESERVED_1 : 1;    // [1]   Reserved                                {0}
+            u8_t RESERVED_2 : 1;    // [2]   Reserved                                {1}
+            u8_t RESERVED_3 : 1;    // [3]   Reserved                                {0}
+            u8_t MLC_ODR    : 2;    // [5:4] Machine Learning Core ODR configuration {01}
+            u8_t RESERVED_6 : 1;    // [6]   Reserved                                {0}
+            u8_t RESERVED_7 : 1;    // [7]   Reserved                                {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_ODR_CFG_C_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__ */
