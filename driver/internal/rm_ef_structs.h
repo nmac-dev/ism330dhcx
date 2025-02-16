@@ -1,5 +1,5 @@
 /// @file  internal/rm_ef_structs.h
-/// @brief ISM330DHCX Internal Structs for Embedded Advanced Features Page 1 Register Mapping
+/// @brief ISM330DHCX Internal Structs for Embedded Functions Register Mapping
 
 #ifndef __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__
 #define __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__
