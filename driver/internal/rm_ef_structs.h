@@ -1170,4 +1170,47 @@ typedef struct
 } _ism330dhcx_rm_ef__EMB_FUNC_ODR_CFG_C_s;
 
 
+/* Step Counter Registers */
+
+
+/// @struct _ism330dhcx_rm_ef__STEP_COUNTER_L_s
+/// @brief  ISM330DHCX Step counter output register (LSB) [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__STEP_COUNTER_L_s;
+
+
+/// @struct _ism330dhcx_rm_ef__STEP_COUNTER_H_s
+/// @brief  ISM330DHCX Step counter output register (MSB) [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__STEP_COUNTER_H_s;
+
+
+/// @struct _ism330dhcx_rm_ef__STEP_COUNTER_s
+/// @brief  ISM330DHCX Step counter output register [r]
+typedef reg_u16_s _ism330dhcx_rm_ef__STEP_COUNTER_s;
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_SRC_s
+/// @brief  ISM330DHCX Embedded function source register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                           // [7:0] Full value of the register {output}
+        struct {
+            u8_t RESERVED_0          : 1;    // [0]   Reserved                                                      {0}
+            u8_t RESERVED_1          : 1;    // [1]   Reserved                                                      {0}
+            u8_t STEPCOUNTER_BIT_SET : 1;    // [2]   This bit is equal to 1 when the step count is increased [r]   {output}
+            u8_t STEP_OVERFLOW       : 1;    // [3]   Step counter overflow status                            [r]   {output}
+            u8_t STEP_COUNT_DELTA_IA : 1;    // [4]   Pedometer step recognition on delta time status         [r]   {output}
+            u8_t STEP_DETECTED       : 1;    // [5]   Step detector event detection status.                   [r]   {output}
+            u8_t RESERVED_6          : 1;    // [6]   Reserved                                                      {0}
+            u8_t PEDO_RST_STEP       : 1;    // [7]   Reset pedometer step counter                            [r/w] {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_SRC_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__ */
