@@ -1266,4 +1266,47 @@ typedef struct
 } _ism330dhcx_rm_ef__EMB_FUNC_INIT_B_s;
 
 
+/* Machine Learning Core (MLC) Registers */
+
+
+/// @struct _ism330dhcx_rm_ef__MLC0_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 0 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC0_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC1_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 1 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC1_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC2_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 2 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC2_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC3_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 3 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC3_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC4_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 4 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC4_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC5_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 5 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC5_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC6_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 6 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC6_SRC_s;
+
+
+/// @struct _ism330dhcx_rm_ef__MLC7_SRC_s
+/// @brief  ISM330DHCX Machine Learning Core 7 source register [r]
+typedef reg_u8_s _ism330dhcx_rm_ef__MLC7_SRC_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__ */
