@@ -1213,4 +1213,57 @@ typedef struct
 } _ism330dhcx_rm_ef__EMB_FUNC_SRC_s;
 
 
+/* Initialization Registers */
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_INIT_A_s
+/// @brief  ISM330DHCX Embedded functions initialization register (A) [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                     // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0    : 1;    // [0]   Reserved                                                         {0}
+            u8_t RESERVED_1    : 1;    // [1]   Reserved                                                         {0}
+            u8_t RESERVED_2    : 1;    // [2]   Reserved                                                         {0}
+            u8_t STEP_DET_INIT : 1;    // [3]   Pedometer Step Counter/Detector algorithm initialization request {0}
+            u8_t TILT_INIT     : 1;    // [4]   Tilt algorithm initialization request                            {0}
+            u8_t SIG_MOT_INIT  : 1;    // [5]   Significant Motion Detection algorithm initialization request    {0}
+            u8_t RESERVED_6    : 1;    // [6]   Reserved                                                         {0}
+            u8_t RESERVED_7    : 1;    // [7]   Reserved                                                         {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_INIT_A_s;
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_INIT_B_s
+/// @brief  ISM330DHCX Embedded functions initialization register (B) [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                       // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FSM_INIT        : 1;    // [0]   FSM initialization request                      {0}
+            u8_t RESERVED_1      : 1;    // [1]   Reserved                                        {0}
+            u8_t RESERVED_2      : 1;    // [2]   Reserved                                        {0}
+            u8_t FIFO_COMPR_INIT : 1;    // [3]   FIFO compression feature initialization request {0}
+            u8_t MLC_INIT        : 1;    // [4]   Machine Learning Core initialization request    {0}
+            u8_t RESERVED_5      : 1;    // [5]   Reserved                                        {0}
+            u8_t RESERVED_6      : 1;    // [6]   Reserved                                        {0}
+            u8_t RESERVED_7      : 1;    // [7]   Reserved                                        {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_INIT_B_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__ */
