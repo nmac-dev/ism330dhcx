@@ -534,4 +534,589 @@ typedef struct
 } _ism330dhcx_rm_ef__MLC_STATUS_s;
 
 
+/* Page R/W Register */
+
+
+/// @struct _ism330dhcx_rm_ef__PAGE_RW_s
+/// @brief  ISM330DHCX Enable read and write mode of advanced features dedicated page [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0   : 1;    // [0]   Reserved                                                        {0}
+            u8_t RESERVED_1   : 1;    // [1]   Reserved                                                        {0}
+            u8_t RESERVED_2   : 1;    // [2]   Reserved                                                        {0}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved                                                        {0}
+            u8_t RESERVED_4   : 1;    // [4]   Reserved                                                        {0}
+            u8_t PAGE_READ    : 1;    // [5]   Enable reads from the selected advanced features dedicated page {0}
+            u8_t PAGE_WRITE   : 1;    // [6]   Enable writes to  the selected advanced features dedicated page {0}
+            u8_t EMB_FUNC_LIR : 1;    // [7]   Latched Interrupt mode for Embedded Functions                   {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__PAGE_RW_s;
+
+
+/* Batching Configuration Register */
+
+
+/// @struct _ism330dhcx_rm_ef__EMB_FUNC_FIFO_CFG_s
+/// @brief  ISM330DHCX Embedded functions batching configuration register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                    // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t RESERVED_0   : 1;    // [0]   Reserved                                    {0}
+            u8_t RESERVED_1   : 1;    // [1]   Reserved                                    {0}
+            u8_t RESERVED_2   : 1;    // [2]   Reserved                                    {0}
+            u8_t RESERVED_3   : 1;    // [3]   Reserved                                    {0}
+            u8_t RESERVED_4   : 1;    // [4]   Reserved                                    {0}
+            u8_t RESERVED_5   : 1;    // [5]   Reserved                                    {0}
+            u8_t PEDO_FIFO_EN : 1;    // [6]   Enable FIFO batching of step counter values {0}
+            u8_t RESERVED_7   : 1;    // [7]   Reserved                                    {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__EMB_FUNC_FIFO_CFG_s;
+
+
+/* Finite State Machine (FSM) Registers */
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_ENABLE_A_s
+/// @brief  ISM330DHCX FSM enable register (A) [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                 // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FSM1_EN   : 1;    // [0]   FSM1 enable {0}
+            u8_t FSM2_EN   : 1;    // [1]   FSM2 enable {0}
+            u8_t FSM3_EN   : 1;    // [2]   FSM3 enable {0}
+            u8_t FSM4_EN   : 1;    // [3]   FSM4 enable {0}
+            u8_t FSM5_EN   : 1;    // [4]   FSM5 enable {0}
+            u8_t FSM6_EN   : 1;    // [5]   FSM6 enable {0}
+            u8_t FSM7_EN   : 1;    // [6]   FSM7 enable {0}
+            u8_t FSM8_EN   : 1;    // [7]   FSM8 enable {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_ENABLE_A_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_ENABLE_B_s
+/// @brief  ISM330DHCX FSM enable register (B) [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FSM9_EN  : 1;    // [0]   FSM9  enable {0}
+            u8_t FSM10_EN : 1;    // [1]   FSM10 enable {0}
+            u8_t FSM11_EN : 1;    // [2]   FSM11 enable {0}
+            u8_t FSM12_EN : 1;    // [3]   FSM12 enable {0}
+            u8_t FSM13_EN : 1;    // [4]   FSM13 enable {0}
+            u8_t FSM14_EN : 1;    // [5]   FSM14 enable {0}
+            u8_t FSM15_EN : 1;    // [6]   FSM15 enable {0}
+            u8_t FSM16_EN : 1;    // [7]   FSM16 enable {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_ENABLE_B_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_ENABLE_s
+/// @brief  ISM330DHCX FSM enable register (A|B) [r/w]
+typedef struct
+{
+    adr_u16c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u16_t full;                // [7:0] Full value of the register {0x00}
+        struct {
+            u16_t FSM1_EN  : 1;    // [0]   FSM1  enable {0}
+            u16_t FSM2_EN  : 1;    // [1]   FSM2  enable {0}
+            u16_t FSM3_EN  : 1;    // [2]   FSM3  enable {0}
+            u16_t FSM4_EN  : 1;    // [3]   FSM4  enable {0}
+            u16_t FSM5_EN  : 1;    // [4]   FSM5  enable {0}
+            u16_t FSM6_EN  : 1;    // [5]   FSM6  enable {0}
+            u16_t FSM7_EN  : 1;    // [6]   FSM7  enable {0}
+            u16_t FSM8_EN  : 1;    // [7]   FSM8  enable {0}
+            u16_t FSM9_EN  : 1;    // [8]   FSM9  enable {0}
+            u16_t FSM10_EN : 1;    // [9]   FSM10 enable {0}
+            u16_t FSM11_EN : 1;    // [10]  FSM11 enable {0}
+            u16_t FSM12_EN : 1;    // [11]  FSM12 enable {0}
+            u16_t FSM13_EN : 1;    // [12]  FSM13 enable {0}
+            u16_t FSM14_EN : 1;    // [13]  FSM14 enable {0}
+            u16_t FSM15_EN : 1;    // [14]  FSM15 enable {0}
+            u16_t FSM16_EN : 1;    // [15]  FSM16 enable {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_ENABLE_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_LONG_COUNTER_L_s
+/// @brief  ISM330DHCX FSM long counter status register (LSB) [r/w]
+/// @note   value can be reset using the LC_CLEAR bit in FSM_LONG_COUNTER_CLEAR register
+typedef reg_u8_s _ism330dhcx_rm_ef__FSM_LONG_COUNTER_L_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_LONG_COUNTER_H_s
+/// @brief  ISM330DHCX FSM long counter status register (MSB) [r/w]
+/// @note   value can be reset using the LC_CLEAR bit in FSM_LONG_COUNTER_CLEAR register
+typedef reg_u8_s _ism330dhcx_rm_ef__FSM_LONG_COUNTER_H_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_LONG_COUNTER_s
+/// @brief  ISM330DHCX FSM long counter status register [r/w]
+/// @note   value can be reset using the LC_CLEAR bit in FSM_LONG_COUNTER_CLEAR register
+typedef reg_u16_s _ism330dhcx_rm_ef__FSM_LONG_COUNTER_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_LONG_COUNTER_CLEAR_s
+/// @brief  ISM330DHCX FSM long counter reset register [r/w]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;                      // [7:0] Full value of the register {0x00}
+        struct {
+            u8_t FSM_LC_CLEAR   : 1;    // [0]   Clear FSM long counter value                                                {0}
+            u8_t FSM_LC_CLEARED : 1;    // [1]   read-only bit is automatically set to 1 when the long counter reset is done {0}
+            u8_t RESERVED_2     : 1;    // [2]   Reserved                                                                    {0}
+            u8_t RESERVED_3     : 1;    // [3]   Reserved                                                                    {0}
+            u8_t RESERVED_4     : 1;    // [4]   Reserved                                                                    {0}
+            u8_t RESERVED_5     : 1;    // [5]   Reserved                                                                    {0}
+            u8_t RESERVED_6     : 1;    // [6]   Reserved                                                                    {0}
+            u8_t RESERVED_7     : 1;    // [7]   Reserved                                                                    {0}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_LONG_COUNTER_CLEAR_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS1_s
+/// @brief  ISM330DHCX FSM1 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM1 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM1 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM1 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM1 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM1 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM1 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM1 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM1 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS1_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS2_s
+/// @brief  ISM330DHCX FSM2 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM2 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM2 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM2 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM2 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM2 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM2 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM2 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM2 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS2_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS3_s
+/// @brief  ISM330DHCX FSM3 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM3 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM3 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM3 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM3 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM3 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM3 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM3 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM3 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS3_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS4_s
+/// @brief  ISM330DHCX FSM4 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM4 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM4 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM4 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM4 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM4 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM4 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM4 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM4 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS4_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS5_s
+/// @brief  ISM330DHCX FSM5 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM5 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM5 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM5 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM5 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM5 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM5 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM5 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM5 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS5_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS6_s
+/// @brief  ISM330DHCX FSM6 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM6 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM6 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM6 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM6 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM6 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM6 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM6 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM6 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS6_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS7_s
+/// @brief  ISM330DHCX FSM7 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM7 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM7 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM7 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM7 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM7 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM7 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM7 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM7 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS7_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS8_s
+/// @brief  ISM330DHCX FSM8 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM8 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM8 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM8 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM8 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM8 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM8 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM8 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM8 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS8_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS9_s
+/// @brief  ISM330DHCX FSM9 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM9 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM9 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM9 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM9 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM9 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM9 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM9 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM9 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS9_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS10_s
+/// @brief  ISM330DHCX FSM10 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM10 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM10 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM10 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM10 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM10 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM10 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM10 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM10 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS10_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS11_s
+/// @brief  ISM330DHCX FSM11 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM11 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM11 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM11 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM11 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM11 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM11 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM11 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM11 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS11_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS12_s
+/// @brief  ISM330DHCX FSM12 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM12 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM12 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM12 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM12 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM12 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM12 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM12 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM12 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS12_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS13_s
+/// @brief  ISM330DHCX FSM13 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM13 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM13 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM13 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM13 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM13 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM13 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM13 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM13 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS13_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS14_s
+/// @brief  ISM330DHCX FSM14 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM14 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM14 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM14 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM14 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM14 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM14 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM14 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM14 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS14_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS15_s
+/// @brief  ISM330DHCX FSM15 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM15 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM15 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM15 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM15 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM15 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM15 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM15 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM15 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS15_s;
+
+
+/// @struct _ism330dhcx_rm_ef__FSM_OUTS16_s
+/// @brief  ISM330DHCX FSM16 output register [r]
+typedef struct
+{
+    adr_u8c_u ADR; // register address
+
+    /// @union <anonymous>
+    /// @brief Bit Field Union for register value
+    union {
+        u8_t full;           // [7:0] Full value of the register {output}
+        struct {
+            u8_t N_V : 1;    // [0]   FSM16 output: negative event detected on the vector {output}
+            u8_t P_V : 1;    // [1]   FSM16 output: positive event detected on the vector {output}
+            u8_t N_Z : 1;    // [2]   FSM16 output: negative event detected on the Z-axis {output}
+            u8_t P_Z : 1;    // [3]   FSM16 output: positive event detected on the Z-axis {output}
+            u8_t N_Y : 1;    // [4]   FSM16 output: negative event detected on the Y-axis {output}
+            u8_t P_Y : 1;    // [5]   FSM16 output: positive event detected on the Y-axis {output}
+            u8_t N_X : 1;    // [6]   FSM16 output: negative event detected on the X-axis {output}
+            u8_t P_X : 1;    // [7]   FSM16 output: positive event detected on the X-axis {output}
+        };
+    } bf;
+
+} _ism330dhcx_rm_ef__FSM_OUTS16_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EF_STRUCTS_H__ */
