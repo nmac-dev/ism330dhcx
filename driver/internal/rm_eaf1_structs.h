@@ -100,4 +100,25 @@ typedef reg_u8_s _ism330dhcx_rm_eaf1__PEDO_SC_DELTAT_H_s;
 typedef reg_u16_s _ism330dhcx_rm_eaf1__PEDO_SC_DELTAT_s;
 
 
+/* Machine Learning Core (MLC) Configuration Registers */
+
+
+/// @struct _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_L_s
+/// @brief  ISM330DHCX External magnetometer sensitivity value register for the Machine Learning Core (LSB) [r/w] {0x00}
+/// @note   value is expressed as half-precision floating-point format <SEEEEEFFFFFFFFFF>
+typedef reg_u8_s _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_L_s;
+
+
+/// @struct _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_H_s
+/// @brief  ISM330DHCX External magnetometer sensitivity value register for the Machine Learning Core (MSB) [r/w] {0x3C}
+/// @note   value is expressed as half-precision floating-point format <SEEEEEFFFFFFFFFF>
+typedef reg_u8_s _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_H_s;
+
+
+/// @struct _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_s
+/// @brief  ISM330DHCX External magnetometer sensitivity value register for the Machine Learning Core [r/w] {0x3C00}
+/// @note   value is expressed as half-precision floating-point format <SEEEEEFFFFFFFFFF>
+typedef reg_u16_s _ism330dhcx_rm_eaf1__MLC_MAG_SENSITIVITY_s;
+
+
 #endif /* __ISM330DHCX_INTERNAL__RM_EAF1_STRUCTS_H__ */
